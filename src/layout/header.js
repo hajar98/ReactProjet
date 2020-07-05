@@ -54,17 +54,10 @@ function Affiche(props){
        phoneNumber: phone,
        company: company
      },
-    //  {
-    //   headers: { 
-    //     'Access-Control-Allow-Origin' : '196.89.178.33',
-    //   'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-    //   'Accept': 'application/json',
-    // 'Content-Type': 'application/json',
-    //   }
-    // }
      ).then(
        (response)=>{
-       alert('rah jawbna');
+       props.setOpen(false);
+       props.getContacts();
         console.log(response);
 
      }
@@ -89,7 +82,7 @@ function Affiche(props){
            <TextField  required id="standard-required" label="Nom " onChange={onChangeFirstName} />
            <TextField required id="standard-required" label="Prenom" onChange={onChangeLastName} />
            <TextField required id="standard-required" label="Surnom" onChange={onChangeSurname} />
-           <TextField required id="standard-required" label="Email" onChange={onChangeEmail} />
+           <TextField required id="standard-required" type='email' label="Email" onChange={onChangeEmail} />
            <TextField required id="standard-required" label="Phone" onChange={onChangePhone} />  
            <TextField required id="standard-required" label="société" onChange={onChangeCompany} />
            </form>
