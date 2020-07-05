@@ -5,10 +5,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
 import TextField from '@material-ui/core/TextField';
-
+import Axios from 'axios';
+import {URL} from '../constants'
 
 
 function Affiche(props){
@@ -29,25 +28,50 @@ function Affiche(props){
     const handleClose = () => {
       props.setOpen(false);
     };
-    const onChangeFirstName=()=>{
-      setFirstName(firstName);
+    const onChangeFirstName=(e)=>{
+      setFirstName(e.target.value);
     };
-    const onChangeLastName=()=>{
-      setlastName(lasttName);
+    const onChangeLastName=(e)=>{
+      setlastName(e.target.value);
     };
-    const onChangeSurname=()=>{
-      setSurnom(surnom);
+    const onChangeSurname=(e)=>{
+      setSurnom(e.target.value);
     };
-    const onChangeEmail=()=>{
-      setEmail(email);
+    const onChangeEmail=(e)=>{
+      setEmail(e.target.value);
     };
-    const onChangePhone=()=>{
-      setPhone(phone);
+    const onChangePhone=(e)=>{
+      setPhone(e.target.value);
     };
-    const onChangeCompany=()=>{
-      setCompany(company);
+    const onChangeCompany=(e)=>{
+      setCompany(e.target.value);
     };
-   
+   const handleSubmit =() => {
+
+     Axios.post(`${URL}/addContact`,{
+       email: email,
+       name: `${firstName}  ${lasttName}`,
+       phoneNumber: phone,
+       company: company
+     },
+    //  {
+    //   headers: { 
+    //     'Access-Control-Allow-Origin' : '196.89.178.33',
+    //   'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    //   'Accept': 'application/json',
+    // 'Content-Type': 'application/json',
+    //   }
+    // }
+     ).then(
+       (response)=>{
+       alert('rah jawbna');
+        console.log(response);
+
+     }
+     ).catch((error)=>{
+       console.log(error);
+     });
+   };
 
   
     return (
@@ -74,7 +98,7 @@ function Affiche(props){
             <Button onClick={handleClose} color="primary">
               Anuller
             </Button>
-            <Button onClick={handleClose} color="primary">
+            <Button onClick={handleSubmit} color="primary">
               Ajouter
             </Button>
           </DialogActions>
