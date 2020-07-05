@@ -11,16 +11,12 @@ export default function MaterialTableDemo() {
       { title: 'Nom', field: 'nom' },
       { title: 'Prenom', field: 'prenom' },
       { title: 'Surnom', field: 'surnom' },
-      { title: 'Prenom', field: 'surname' },
-      { title: 'Email', field: 'email' },
+      { title: 'Email', field: 'surname' },
+      { title: 'Numéro de téléphone', field: 'email' },
+      { title: 'Société', field: 'email' },
 
 
       
-      {
-        title: 'Birth Place',
-        field: 'birthCity',
-        lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-      },
     ],
     data: [
       

@@ -72,10 +72,10 @@ function Affiche(props){
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="primary">
-              Cancel
+              Anuller
             </Button>
             <Button onClick={handleClose} color="primary">
-              Subscribe
+              Ajouter
             </Button>
           </DialogActions>
         </Dialog>
